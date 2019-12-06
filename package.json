@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "start:ios": "npm run build && concurrently -r 'npm run watch' 'ENVFILE=.env react-native run-ios --simulator=\"iPhone 5s\"'",
+    "start:android": "npm run build && concurrently -r 'npm run watch' 'ENVFILE=.env react-native run-android'",
+    "build:android": "npm run build && cd android && ENVFILE=.env ./gradlew assembleRelease"
   },
   "dependencies": {
     "react": "16.8.6",
